@@ -1,0 +1,278 @@
+*, ::before, ::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #ccc;
+    height: 100vh;
+}
+
+
+/*********************** menu ****************************/
+
+nav {
+    display: flex;
+    width: 100%;
+    height: 50px;
+    background-color: #555;
+    border-bottom: .5px solid #777;
+}
+
+nav ul li {
+    list-style-type: none;
+    color: #fff;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #fff;
+}
+
+nav .menu > li > a {
+    padding: 16px 27px;
+}
+
+.menu {
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    height: 100%;
+    line-height: 50px;
+}
+
+.menu-items:first-child {
+    margin-right: 20px;
+}
+
+.menu-items:first-child a {
+    font-size: 1.2rem;
+    font-weight: 900;
+    padding: 14px;
+}
+
+.menu-items:last-child {
+    margin-right: -4px;
+}
+
+.menu-items {
+    cursor: pointer;
+    text-align: center;
+    flex-shrink: 0;
+    width: 150px;
+}
+
+
+/******************* sous-menu *************************/
+
+.submenu {
+    position: relative;
+    z-index: 2;
+    display: none;
+}
+
+.submenu-items {
+    text-align: center;
+    padding: 0;
+    background-color: #555;
+    border-bottom: .5px solid #777;
+}
+
+.submenu-profile .del-item {
+    line-height: 20px;
+    height: 50px;
+    padding-top: 5px;
+}
+
+.submenu-items > a:not(.deleted) {
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.submenu-items > a.deleted {
+    padding: 5px 0;
+}
+
+.submenu-items:hover {
+    background-color: #666;
+}
+
+.menu-items:hover > ul {
+    display: block;
+}
+
+
+/*************** barre de recherche - menu ********************/
+
+.search-nav {
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+}
+
+.search-nav-input {
+    width: 200px;
+    padding-left: 5px;
+    color:#333;
+    border: none;
+    outline: none;
+}
+
+.search-nav-input::placeholder {
+    color: #555;
+}
+
+.search-nav-btn {
+    cursor: pointer;
+    background-color: transparent;
+    margin-left: 5px;
+}
+
+.search-nav-icon {
+    color: #fff;
+    font-size: 20px;
+    padding: 3px;
+}
+
+
+/*********************** page d'accueil ************************/
+
+.grid {
+    
+    --num-cols: 18;
+    --num-rows: 2;
+    --col-width: 50px;
+    --row-height: 30px;
+    --gap: .5px;
+    
+    margin: 0 auto;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    background-color: #000;
+    
+    display: grid;
+    width: 100vw;
+    height: 88vh;
+    grid-template-columns: repeat(var(--num-cols), var(--col-width));
+    grid-template-rows: repeat (var(--num-rows), var(--row-height));
+    gap: var(--gap);
+}
+
+.grid img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.img01 {
+    grid-area: 1/1/2/3;
+}
+
+.img02 {
+    grid-area: 1/3/2/4;
+}
+
+.img03 {
+    grid-area: 1/4/2/6;
+}
+
+.img04 {
+    grid-area: 1/6/2/7;
+}
+
+.img05 {
+    grid-area: 1/7/2/9;
+}
+
+.img06 {
+    grid-area: 1/9/2/10;
+}
+
+.img07 {
+    grid-area: 2/1/3/2;
+}
+
+.img08 {
+    grid-area: 2/2/3/4;
+}
+
+.img09 {
+    grid-area: 2/4/3/5;
+}
+
+.img10 {
+    grid-area: 2/5/3/7;
+}
+
+.img11 {
+    grid-area: 2/7/3/8;
+}
+
+.img12 {
+    grid-area: 2/8/3/10;
+}
+
+.img13 {
+    grid-area: 1/10/2/12;
+}
+
+.img14 {
+    grid-area: 1/12/2/13;
+}
+
+.img15 {
+    grid-area: 2/10/3/11;
+}
+
+.img16 {
+    grid-area: 2/11/3/13;
+}
+
+.img17 {
+    grid-area: 1/13/2/15;
+}
+
+.img18 {
+    grid-area: 1/15/2/16;
+}
+
+.img19 {
+    grid-area: 2/13/3/14;
+}
+
+.img20 {
+    grid-area: 2/14/3/16;
+}
+
+.img21 {
+    grid-area: 1/16/2/18;
+}
+
+.img22 {
+    grid-area: 1/18/2/19;
+}
+
+.img23 {
+    grid-area: 2/16/3/17;
+}
+
+.img24 {
+    grid-area: 2/17/3/19;
+}
+
+
+
+
+
+/*********************** création de compte ************************/
+/*********************** modification de profil ************************/
+/*********************** suppression de compte ************************/
+/*********************** connexion ************************/
+/*********************** déconnexion ************************/
+
+/*********************** affichage classique des films ************************/
+/*********************** affichage des détails d'un film ************************/
+

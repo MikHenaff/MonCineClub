@@ -1,0 +1,1081 @@
+:root {
+    --main-bg-color: #ebe3db;
+    --main-color: #4c4343;
+    --nav-bg-color: #dbd3cb;
+    --submenu-bg-color: #cbc3bb;
+    --interactionUser-bg-color: #ccc;
+    --msgError-color: #f00;
+    --main-font-family: Arial, Helvetica, sans-serif;
+    --logo-font-family: 'Syne Mono', monospace;
+    --titles-font-family: 'Caveat', cursive;
+}
+
+*, ::before, ::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--main-font-family);
+    background-color: var(--main-bg-color);
+    height: 100%;
+    position: relative;
+}
+
+/**************************************************************** header ************************************************************/
+
+/******************************** logo & burger ***********************/
+
+header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: fit-content;
+    width: 100%;
+    margin-bottom: 70px;
+}
+
+.logo-bar {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    position: fixed;
+    top: 0px;
+    background-color: var(--nav-bg-color);
+    height: 70px;
+    line-height: 70px;
+    border-bottom: 2px solid var(--main-color);
+}
+
+.logo {
+    text-decoration: none;
+    font-size: 2rem;
+    font-weight: 900;
+    color: var(--main-color);
+    margin-left: 10px;
+    font-family: var(--logo-font-family);
+}
+
+.burger {
+    cursor: pointer;
+    padding: 20px;
+}
+
+.bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    border: 1px solid var(--main-color);
+    border-radius: 10px;
+    margin: 5px auto;
+    transition: all .3s ease-in-out;
+    background-color: var(--main-color);;
+}
+
+.burger.active .bar:nth-child(2) {
+    opacity: 0;
+}
+.burger.active .bar:first-child {
+    transform: translateY(8px) rotate(45deg);
+}
+
+.burger.active .bar:last-child {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+.menu.active {
+    left: 0
+}
+
+/*********************** menu ****************************/
+
+nav {
+    width: 100%;
+}
+
+nav ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    
+}
+
+nav ul li {
+    width: 100%;
+    text-align: center;
+    background-color: var(--nav-bg-color);
+    border-bottom: 1px solid var(--main-color);;
+}
+
+nav ul li a {
+    display: block;
+    width: 100%;
+    height:  50px;
+    line-height: 50px;
+    font-weight: 900;
+    text-decoration: none;
+    color: var(--main-color);
+}
+
+
+nav ul li a:hover {
+    background-color: var(--main-color);
+    color: var(--main-bg-color);
+}
+
+.with-sub {
+    height: 50px;
+    color: var(--main-color);
+    font-weight: 900;
+}
+
+.menu {
+    position: fixed;
+    top: 70px;
+    left: -100%;
+}
+
+.menu li:nth-child(2) {
+    line-height: 50px;
+}
+
+.menu li:nth-child(4) {
+    border-top: .5px solid var(--main-color);
+    line-height: 50px;
+}
+
+/******************* sous-menu *************************/
+
+.submenu {
+    position: relative;
+    z-index: 2;
+    display: none;
+}
+
+.submenu-items {
+    text-align: center;
+    background-color: var(--submenu-bg-color);
+    border-bottom: .5px solid var(--main-color);
+}
+
+.submenu-items a {
+    height: 50px;
+    line-height: 50px;
+}
+
+.submenu-profile {
+    top: -1px;
+}
+
+.submenu-items:hover {
+    background-color: var(--main-color);
+}
+
+.menu-items:hover > ul {
+    display: block;
+}
+
+/*************** barre de recherche - menu ********************/
+
+.search-nav {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding: 10px;
+    background-color: var(--nav-bg-color);
+}
+
+.search-nav-input {
+    width: 250px;
+    font-size: 1rem;
+    font-weight: 500;
+    padding-left: 5px;
+    color: var(--main-color);
+    border: .5px solid var(--main-color);
+    border-radius: 5px;
+    outline: none;
+}
+
+.search-nav-input::placeholder {
+    color: var(--main-color);
+    font-weight: 400;
+}
+
+.search-nav-btn {
+    cursor: pointer;
+    background-color: var(--submenu-bg-color);
+    margin-left: 5px;
+    border-radius: 5px;
+}
+
+.search-nav-icon {
+    color: var(--main-color);
+    font-size: 20px;
+    padding: 3px;
+}
+
+/***************************************************** fin header ************************************************************/
+
+/************************ footer *********************************/
+
+footer {
+    background-color: var(--nav-bg-color);
+    width: 100%;
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+    position: fixed;
+    bottom: 0;
+}
+
+footer p {
+    color: var(--main-color);
+    font-weight: 900;
+}
+
+/************************ homepage *********************************/
+
+h1.home {
+    font-family: var(--titles-font-family);
+    text-decoration: underline double 1px;
+    text-underline-offset: 6px;
+    font-size: 2.5rem;
+    padding-top: 15px;
+    margin-top: -5px;
+    color: var(--main-color);
+    text-align: center;
+}
+
+.changeImg {
+    display: block;
+    height: 68vh;
+    position: relative;
+    bottom: -10px;
+    margin: 0 auto;
+    z-index: -1;
+}
+
+/******************************************************* user **********************************************************/
+
+/***************** création / modification de compte ******************/
+
+.user-register {
+    background-color: var(--interactionUser-bg-color);
+    height: 90vh;
+    margin: 0 auto;
+    padding: 20px;
+    display: flex;
+    text-align: center;
+
+}
+
+.user-register h2 {
+    font-size: 2rem;
+    color: var(--main-color);
+}
+
+.user-register form {
+    margin: 30px auto;
+}
+
+.register {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 30px 10px;
+}
+
+.label-register {
+    color: var(--main-color);
+    font-weight: 900;
+    margin-bottom: 5px;
+}
+
+.input-register {
+    width: 260px;
+    height: 35px;
+    padding-left: 5px;
+    font-size: 1.1rem;
+    border-radius: 5px;
+}
+
+.btn-register, .btn-cancel-register {
+    cursor: pointer;
+    width: 110px;
+    font-size: 1rem;
+    padding: 5px;
+    border-radius: 5px;
+    color: var(--main-color);
+    font-weight: 900;
+    background-color: var(--main-bg-color);
+    border: 1px solid var(--main-color);
+    box-shadow: 0 0 3px var(--main-color);
+    margin: 20px 15px;
+}
+
+.btn-cancel-register {
+    display: inline-block;
+    text-decoration: none;
+}
+
+.btn-register:hover, .btn-cancel-register:hover {
+    color: var(--main-bg-color);
+    background-color: var(--main-color);
+}
+
+/************************* connexion **************************/
+
+.form-login {
+    background-color: var(--interactionUser-bg-color);
+    height: 90vh;
+    margin: 0 auto;
+    padding: 50px 20px;
+    display: flex;
+    text-align: center;
+
+}
+
+.form-login h2 {
+    font-size: 2rem;
+    color: var(--main-color);
+    margin-bottom: 40px;
+    padding-top: 30px;
+}
+
+.input-login {
+    width: 260px;
+    height: 35px;
+    padding-left: 5px;
+    font-size: 1.1rem;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.btn-login {
+    font-size: 1rem;
+    width: fit-content;
+    padding: 5px;
+    border-radius: 5px;
+    color: var(--main-color);
+    font-weight: 900;
+    background-color: var(--main-bg-color);
+    border: 1px solid var(--main-color);
+    box-shadow: 0 0 3px var(--main-color);
+    margin: 20px 15px;
+}
+
+.btn-login:hover {
+    color: var(--main-bg-color);
+    background-color: var(--main-color);
+}
+
+/******************** suppression de compte *******************/
+
+.btn-deletion, .btn-no-deletion {
+    cursor: pointer;
+    margin: 25px 15px;
+    width: 100px;
+    border: 1px solid var(--main-color);
+    color: var(--main-color);
+    background-color: var(--main-bg-color);
+    padding: 4px;
+    border-radius: 5px;
+    font-weight: 900;
+    box-shadow: 0 0 3px var(--main-color);
+}
+
+.btn-deletion:hover, .btn-no-deletion:hover {
+    color: var(--main-bg-color);
+    background-color: var(--main-color);
+}
+
+.btn-deletion {
+    font-size: 1rem;
+}
+
+.btn-no-deletion {
+    display: inline-block;
+    text-decoration: none;
+}
+
+.msg-deletion {
+    color: var(--main-color);
+    font-size: 1.2rem;
+    font-weight: 900;
+}
+
+/************************* messages erreur *******************/
+
+.msg-register {
+    margin: 0 auto;
+    color: var(--msgError-color);
+    font-size: 1.1rem;
+    font-weight: 900;
+}
+
+.msg-login {
+    margin: 0 auto;
+    color: var(--msgError-color);
+    font-size: 1.1rem;
+    font-weight: 900;
+}
+
+.msg-error-update {
+    margin: 0 auto;
+    color: var(--msgError-color);
+    font-size: 1.1rem;
+    font-weight: 900;
+}
+
+/************************* messages succès *******************/
+
+.msg-success {
+    width: 100vw;
+    height: 90vh;
+    margin: 0 auto;
+    background-color: var(--interactionUser-bg-color);
+    padding: 50px;
+    text-align: center;
+    color: var(--main-color);
+    font-size: 1.2rem;
+    font-weight: 900;
+}
+
+.msg-success-registration {
+    margin: 0 auto;
+    color: var(--main-color);
+    font-size: 1.2rem;
+    font-weight: 900;
+}
+
+.msg-success-update {
+    margin: 0 auto;
+    color: var(--main-color);
+    font-size: 1.2rem;
+    font-weight: 900;
+}
+
+/******************************************************** fin user ************************************************************/
+
+/********************************************************* films ***************************************************************/
+
+.movie-msg {
+    width: 100vw;
+    height: 90vh;
+    background-color: var(--interactionUser-bg-color);
+    padding: 50px;
+    text-align: center;
+    color: var(--main-color);
+    font-size: 1.2rem;
+    font-weight: 900;
+}
+
+.back-btn {
+    cursor: pointer;
+    width: fit-content;
+    padding: 5px;
+    border-radius: 5px;
+    color: var(--main-color);
+    font-weight: 900;
+    background-color: var(--main-bg-color);
+    margin: 20px auto 50px;
+}
+
+.back-btn:hover {
+   color: var(--main-bg-color);
+   background-color: var(--main-color);
+   box-shadow: 0 0 3px var(--main-color);
+   
+}
+
+/*************** affichage films du menu ****************/
+
+h1.movies {
+    background-color: var(--main-bg-color);
+    font-family: var(--titles-font-family);
+    text-decoration: underline double 1px;
+    text-underline-offset: 12px;
+    font-size: 2.5rem;
+    padding: 20px 0;
+    color: var(--main-color);
+    text-align: center;
+}
+
+.show-movie {
+    width: 187px;
+    margin: 40px auto;
+    background-color: var(--main-color);
+    border: 1px double var(--main-color);
+}
+
+.show-img {
+    text-align: center;
+}
+
+.infos {
+    background-color: var(--main-color);
+}
+
+.show-infos h2 {
+    font-size: 1.2rem;
+    color: var(--main-bg-color);
+    padding: 5px;
+    
+}
+
+.btn-more-details, .btn-add {
+    border: none;
+    display: block;
+    margin: 10px auto;
+    cursor: pointer;
+    width: 90%;
+    padding: 5px;
+    border-radius: 5px;
+    color: var(--main-color);
+    font-weight: bold;
+    background-color: var(--submenu-bg-color);
+}
+
+.btn-more-details:hover, .btn-add:hover {
+    background-color: var(--main-bg-color);
+    box-shadow: 0 0 3px var(--main-bg-color);
+}
+
+form.change-pages {
+    text-align: center;
+}
+
+.btn-pages {
+    margin: 20px 20px 50px;
+    width: fit-content;
+    padding: 5px;
+    border-radius: 5px;
+    color: var(--main-color);
+    font-weight: 900;
+    background-color: var(--main-bg-color);
+    box-shadow: 0 0 5px var(--main-color);
+}
+
+.btn-pages:hover {
+    color: var(--main-bg-color);
+    background-color: var(--main-color);
+}
+
+
+/************* affichage des détails d'un film ****************/
+
+.details {
+    width: 302px;
+    margin: 0 auto;
+    color: var(--main-color);
+    border-bottom: 1px double var(--main-color);
+}
+
+.details-img {
+    text-align: center;
+}
+
+.details-infos {
+    margin: 10px auto 20px;
+}
+
+.details-infos p {
+    padding: 5px 0;
+}
+
+.tagline {
+    font-size: 1.5rem;
+    font-weight: 900;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.infos-bold {
+    font-weight: 900;
+    font-size: 1.1rem;
+}
+
+.details-overview h2, .details-overview h3 {
+    margin-bottom: 10px;
+}
+
+.details-overview h3 {
+    font-size: 1.5rem;
+}
+
+.details-btn {
+    text-align: center;
+}
+
+h2.title-movie {
+    font-size: 1.8rem;
+    text-align: center;
+    margin: 20px auto 10px;
+}
+
+.container-collection .btn {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: -20px;
+}
+
+.container-collection .btn .more-details .btn-more-details {
+    width: 180px;
+    border-radius: 3px;
+}
+
+.container-collection  .btn .add .btn-delete-movie {
+    margin: 0 2.5px 10px;
+    background-color: var(--submenu-bg-color);
+    border: none;
+    border-radius: 3px;
+    padding: 5px 2.5px;
+    cursor: pointer;
+    font-weight: 900;
+    color: var(--main-color);
+}
+
+.container-collection  .btn .add .btn-delete-movie:hover {
+    background-color: var(--main-bg-color);
+    color: var(--main-color);
+    box-shadow: 0 0 3px var(--main-bg-color);
+}
+
+/******************************************************* fin films *************************************************************/
+
+
+
+
+
+/******************************************************* media queries *********************************************************/
+
+/******************* tablette et bureau *********************/
+
+@media screen and (min-width: 500px) {
+    
+/************ header ****************/
+
+/* nav logo & barre recherche */
+    
+    header {
+        margin-bottom: 120px;
+    }
+
+    .logo-bar {
+        justify-content: space-between;
+        border-bottom: 1px solid var(--main-color);
+    }
+    
+    .search-nav {
+        padding: 15px;
+        width: 350px;
+    }
+    
+    .search-nav-input {
+        width: 300px;
+    }
+    
+    .search-nav-btn {
+        width: 40px;
+    }
+    
+/* nav menu */
+
+    .menu {
+        display: flex;
+        flex-direction: row;
+        left: 0;
+    }
+    
+    .with-sub {
+        height: 51px;
+    }
+    
+    .with-sub:hover {
+        background-color: var(--main-color);
+        color: var(--main-bg-color);
+    }
+    
+    .menu li:nth-child(3) {
+        line-height: 51px;
+    }
+    
+/* sous-menu */
+
+    .submenu-items {
+        border: .5px solid var(--main-color);
+        border-top: none;
+    }
+    
+/******* fin header ********/
+
+/********* homepage *********/
+
+    .grid {
+        display: grid;
+        margin: 20px;
+        z-index: -1;
+        position: relative;
+        grid-template-areas: 
+        "img01 img02 img03 img04 img05 img06"
+        "img07 img08 img09 img10 img11 img12"
+        "img13 img14 img15 img16 img17 img18"
+        "img19 img20 img21 img22 img23 img24";
+        grid-template-rows: 100px 100px 100px 100px;
+        grid-template-columns: 100px 100px 100px 100px 100px 100px;
+        justify-content: center;
+        justify-items: center;
+    }
+    
+    .img01 {
+        grid-area: img01;
+        width: 300px;
+        position: absolute;
+        top: 0;
+        left: 200px;
+        z-index: 0;
+    }
+    
+    .img02 {
+        grid-area: img02;
+        width: 100px;
+        position: absolute;
+        top: 90px;
+        left: 510px;
+        z-index: 3;
+    }
+
+    .img03 {
+        grid-area: img03;
+        width: 100px;
+        position: absolute;
+        top: -5px;
+        left: -200px;
+        z-index: 3;
+    }
+    
+    .img04 {
+        grid-area: img04;
+        width: 100px;
+        position: absolute;
+        top: 0;
+        left: 380px;
+        z-index: 2;
+    }
+    
+    .img05 {
+        grid-area: img05;
+        width: 100px;
+        position: absolute;
+        top: 10px;
+        /*left: 0px;*/
+        z-index: 2;
+    }
+    
+    .img06 {
+        grid-area: img06;
+        width: 300px;
+        position: absolute;
+        top: 20px;
+        left: -50px;
+        z-index: -1;
+    }
+    
+    .img07 {
+        grid-area: img07;
+        width: 100px;
+        position: absolute;
+        top: 0;
+        left: -100px;
+        z-index: 2;
+    }
+    
+    .img08 {
+        grid-area: img08;
+        width: 100px;
+        position: absolute;
+        top: -50px;
+        left: -150px;
+        z-index: 3;
+    }
+    
+    .img09 {
+        grid-area: img09;
+        width: 300px;
+        position: absolute;
+        top: -80px;
+        left: -300px;
+        z-index: -1;
+    }
+    
+    .img10 {
+        grid-area: img10;
+        width: 100px;
+        position: absolute;
+        top: -70px;
+        left: -470px;
+        z-index: 2;
+    }
+    
+    .img11 {
+        grid-area: img11;
+        width: 200px;
+        position: absolute;
+        top: -85px;
+        left: 35px;
+        z-index: 0;
+    }
+    
+    .img12 {
+        grid-area: img12;
+        width: 200px;
+        position: absolute;
+        top: 0;
+        left: -50px;
+        z-index: 0;
+    }
+    
+    .img13 {
+        grid-area: img13;
+        width: 100px;
+        position: absolute;
+        top: 0;
+        left: -180px;
+        z-index: 1;
+    }
+    
+    .img14 {
+        grid-area: img14;
+        width: 100px;
+        position: absolute;
+        top: -30px;
+        left: -100px;
+        z-index: 2;
+    }
+    
+    .img15 {
+        grid-area: img15;
+        width: 100px;
+        position: absolute;
+        top: 0px;
+        left: 10px;
+        z-index: 1;
+    }
+    
+    .img16 {
+        grid-area: img16;
+        width: 200px;
+        position: absolute;
+        top: -20px;
+        left: -200px;
+        z-index: 0;
+    }
+    
+    .img17 {
+        grid-area: img17;
+        width: 100px;
+        position: absolute;
+        top: 100px;
+        left: 200px;
+        z-index: 2;
+    }
+    
+    .img18 {
+        grid-area: img18;
+        width: 100px;
+        position: absolute;
+        top: 0;
+        left: 170px;
+        z-index: 1;
+    }
+    
+    .img19 {
+        grid-area: img19;
+        width: 100px;
+        position: absolute;
+        top: -40px;
+        left: -160px;
+        z-index: 1;
+    }
+    
+    .img20 {
+        grid-area: img20;
+        width: 100px;
+        position: absolute;
+        top: -200px;
+        left: 50px;
+        z-index: 1;
+    }
+    
+    .img21 {
+        grid-area: img21;
+        width: 100px;
+        position: absolute;
+        top: 0;
+        left: -180px;
+        z-index: 1;
+    }
+    
+    .img22 {
+        grid-area: img22;
+        width: 100px;
+        position: absolute;
+        top: 0;
+        left: 0px;
+        z-index: 1;
+    }
+    
+    .img23 {
+        grid-area: img23;
+        width: 100px;
+        position: absolute;
+        top: 10px;
+        left: 0px;
+        z-index: 1;
+    }
+    
+    .img24 {
+        grid-area: img24;
+        width: 200px;
+        position: absolute;
+        top: -300px;
+        left: -650px;
+        z-index: 0;
+    }
+    
+/******* fin homepage *******/
+
+/*********** user **********/
+
+    .user-register {
+        height: auto;
+        margin: 0 auto;
+    }
+
+    .user-register form {
+        margin: 20px auto;
+    }
+    
+    .register {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    
+    .label-register {
+        margin-right: 20px;
+    }
+
+/******* fin user **********/
+
+/******** films **********/
+
+/**** films du menu  ****/
+    .container-movie {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        margin: 0 auto;
+    }
+    
+    .show-img {
+        height: 274px;
+    }
+    
+    .show-infos h2 {
+        height: 80px;
+        margin: 0 auto 5px;
+        padding-top: 15px;
+    }
+
+/**** collection ***/   
+    .container-collection {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin: 0 auto 35px;
+    }
+    
+    .container-collection .show-movie {
+        width: 185px;
+        margin: 10px 5px;
+        background-color: var(--main-color);
+        border: none;
+    }
+    
+    .container-collection img {
+
+    }
+    
+    .container-collection h2 {
+        height: 70px;
+        overflow: hidden;
+        font-size: 1.2rem;
+        text-align: unset;
+    }
+
+/*** details ***/
+    .details {
+        width: 500px;
+    }
+    
+/****** fin films *********/
+    
+}   
+
+/********************** tablette ****************************/
+
+/*@media screen and (min-width: 500px) and (max-width: 1199px) {*/
+    
+
+
+/********** user **********/
+
+/******* fin user *********/
+
+/******** films **********/
+
+/****** fin films *********/
+    
+/*}*/
+
+/********************** bureau *****************************/
+
+@media screen and (min-width: 1200px) {
+    
+/********* header********/
+    
+    .search-nav {
+        width: 500px;
+    }
+    
+    .search-nav-input {
+        width: 400px;
+    }
+    
+    .search-nav-btn {
+        width: 50px;
+    }
+
+/******* homepage *******/
+
+    .grid {
+        margin: 100px;
+    }
+
+/********** user **********/
+
+/******* fin user *********/
+
+/******** films **********/
+
+/****** fin films *********/
+
+
+}
