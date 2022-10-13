@@ -23,9 +23,9 @@
                 </ul>
             </li>
             
-            <form id="search-nav" class="search-nav" action="./search-movie" method="POST">
-                <input class="search-nav-input" type="text" name="search" placeholder="Entrez un titre..." spellcheck="false" required="required">
-                <button class="search-nav-btn"><i class="search-nav-icon fa-solid fa-magnifying-glass"></i></button>
+            <form id="search-nav" class="search-nav" name="search-nav" action="./search-movie" method="POST">
+                <input class="search-nav-input" type="text" name="search" placeholder="Entrez un titre..." spellcheck="false" required="required" autocomplete>
+                <button id="btn-search" class="search-nav-btn"><i class="search-nav-icon fa-solid fa-magnifying-glass"></i></button>
             </form>
             
             <li class="menu-items with-sub">

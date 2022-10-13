@@ -3,8 +3,7 @@ window.addEventListener('DOMContentLoaded', function () {
     // menu burger
     const burger = document.getElementById('burger');
     const menu = document.getElementById('menu');
-    if (burger && menu)
-    {
+    if (burger && menu) {
         burger.addEventListener('click', () => {
             burger.classList.toggle('active');
             menu.classList.toggle('active');
@@ -21,18 +20,246 @@ window.addEventListener('DOMContentLoaded', function () {
     
     // bouton retour messages-movie
     const back2 = document.getElementById('back2');
-    if (back2)
-    {
+    if (back2) {
         back2.addEventListener('click', () => {
             history.go(-1);
         });
     }
     
+    // ***************** validation des formulaires (caractères spéciaux et champs vides) ************************
+    
+    let regex = /\<|\>|\(|\)/gm;
+    
+    // barre de recherche
+    const formSearch = document.forms['search-nav'];
+    const btnSearch = document.getElementById('btn-search');
+    
+    function validateFormSearch() {
+        
+        const search = formSearch['search'].value;
+        
+        if (search.match(regex)) {
+            alert('Vous ne pouvez pas utiliser les caracères suivants: "<, >, (, )"');
+            return false;
+        }
+        
+        return true;
+    }
+    
+    function submitFormSearch() {
+        
+        const valid = validateFormSearch();
+        
+        if (!valid) {
+            return false;
+        }
+        
+        formSearch.submit();
+    }
+    
+    if (btnSearch) {
+        btnSearch.addEventListener('click', (e) => {
+            e.preventDefault();
+            submitFormSearch();
+        });
+    }
+    
+    // inscription
+    const formRegister = document.forms['register'];
+    const btnRegister = document.getElementById('btn-register');
+    
+    function validateFormRegister() {
+        
+        const usernameRegister = formRegister['username'].value;
+        const passwordRegister = formRegister['password'].value;
+        const password2Register = formRegister['password2'].value;
+        const emailRegister = formRegister['email'].value;
+        
+        if (usernameRegister.match(regex) || passwordRegister.match(regex) || password2Register.match(regex) || emailRegister.match(regex)) {
+            alert('Vous ne pouvez pas utiliser les caracères suivants: "<, >, (, )"');
+            return false;
+        }
+        
+        if (usernameRegister.length === 0 && passwordRegister.length === 0 && password2Register.length === 0 && emailRegister.length === 0) {
+            alert('veuillez remplir tous les champs');
+            return false;
+        }
+        
+        if (usernameRegister.length === 0) {
+            alert('veuillez saisir un nom d\'utilisateur');
+            formRegister['username'].focus();
+            return false;
+        }
+        
+        if (passwordRegister.length === 0) {
+            alert('veuillez saisir un mot de passe');
+            formRegister['password'].focus();
+            return false;
+        }
+        
+        if (password2Register.length === 0) {
+            alert('veuillez confirmer votre mot de passe');
+            formRegister['password2'].focus();
+            return false;
+        }
+        
+        if (emailRegister.length === 0) {
+            alert('veuillez saisir un email');
+            formRegister['email'].focus();
+            return false;
+        }
+        
+        return true;
+    }
+    
+    function submitFormRegister() {
+        
+        const valid = validateFormRegister();
+        
+        if (!valid) {
+            return false;
+        }
+        
+        formRegister.submit();
+    }
+    
+    if (btnRegister) {
+        btnRegister.addEventListener('click', (e) => {
+            e.preventDefault();
+            submitFormRegister();
+        });
+    }
+    
+    // mise à jour des données utilisateur
+    const formUpdate = document.forms['update'];
+    const btnUpdate = document.getElementById('btn-update');
+    
+    function validateFormUpdate() {
+        
+        const usernameUpdate = formUpdate['updated_username'].value;
+        const passwordUpdate = formUpdate['updated_password'].value;
+        const password2Update = formUpdate['updated_password2'].value;
+        const emailUpdate = formUpdate['updated_email'].value;
+        
+        if (usernameUpdate.match(regex) || passwordUpdate.match(regex) || password2Update.match(regex) || emailUpdate.match(regex)) {
+            alert('Vous ne pouvez pas utiliser les caracères suivants: "<, >, (, )"');
+            return false;
+        }
+        
+        if (usernameUpdate.length === 0 && passwordUpdate.length === 0 && password2Update.length === 0 && emailUpdate.length === 0) {
+            alert('veuillez remplir tous les champs');
+            return false;
+        }
+        
+        if (usernameUpdate.length === 0) {
+            alert('veuillez saisir un nom d\'utilisateur');
+            formUpdate['updated_username'].focus();
+            return false;
+        }
+        
+        if (passwordUpdate.length === 0) {
+            alert('veuillez saisir un mot de passe');
+            formUpdate['updated_password'].focus();
+            return false;
+        }
+        
+        if (password2Update.length === 0) {
+            alert('veuillez confirmer votre mot de passe');
+            formUpdate['updated_password2'].focus();
+            return false;
+        }
+        
+        if (emailUpdate.length === 0) {
+            alert('veuillez saisir un email');
+            formUpdate['updated_email'].focus();
+            return false;
+        }
+        
+        return true;
+    }
+    
+    function submitFormUpdate() {
+        
+        const valid = validateFormUpdate();
+        
+        if (!valid) {
+            return false;
+        }
+        
+        formUpdate.submit();
+    }
+    
+    if (btnUpdate) {
+        btnUpdate.addEventListener('click', (e) => {
+            e.preventDefault();
+            submitFormUpdate();
+        });
+    }
+    
+    // connexion
+    const formLogin = document.forms['login'];
+    const btnLogin = document.getElementById('btn-login');
+    
+    function validateFormLogin() {
+        
+        const usernameLogin = formLogin['username'].value;
+        const passwordLogin = formLogin['password_submitted'].value;
+        
+        if (usernameLogin.match(regex) || passwordLogin.match(regex)) {
+            alert('Vous ne pouvez pas utiliser les caracères suivants: "<, >, (, )"');
+            return false;
+        }
+        
+        if (usernameLogin.length === 0 && passwordLogin.length === 0) {
+            alert('veuillez remplir tous les champs');
+            return false;
+        }
+        
+        if (usernameLogin.length === 0) {
+            alert('veuillez saisir un nom d\'utilisateur');
+            formLogin['username'].focus();
+            return false;
+        }
+        
+        if (passwordLogin.length === 0) {
+            alert('veuillez saisir un mot de passe');
+            formLogin['password_submitted'].focus();
+            return false;
+        }
+        
+        return true;
+    }
+    
+    function submitFormLogin() {
+        
+        const valid = validateFormLogin();
+        
+        if (!valid) {
+            return false;
+        }
+        
+        formLogin.submit();
+    }
+    
+    if (btnLogin) {
+        btnLogin.addEventListener('click', (e) => {
+            e.preventDefault();
+            submitFormLogin();
+        });
+    }
+    
    
-// ****************************************mediaqueries****************************
+// **************************************** media queries ****************************
     
         const homepageDiv = document.getElementById('homepage-div');
         const grid = document.getElementById('grid');
+        
+        const logoBar = document.getElementById('logo-bar');
+        const searchNav = document.getElementById('search-nav');
+        
+        const mediaPhone = window.matchMedia("(max-width: 499px)");
+        const mediaTabDesk = window.matchMedia("(min-width: 500px)");
+        const mediaLandscape = window.matchMedia("(orientation: landscape)");
         
 
         // fonctions de changement d'image quand carrousel en homepage
@@ -73,34 +300,78 @@ window.addEventListener('DOMContentLoaded', function () {
         }
     
     // mode téléphone
-    const mediaPhone = window.matchMedia("(max-width: 499px)");
     if (mediaPhone.matches) {
         
-        homepageDiv.style.display = 'block';
-        grid.style.display = 'none';
+        // if (window.location.href === 'https://mikaelhenaff.sites.3wa.io/MonCineClub/login') {
+            
+        //     if (burger) {
+        //         console.log(burger)    
+        //     }
+            
+        // }
+            
+        if (grid)    
+            grid.style.display = 'none';   
+        
+
+        if (mediaLandscape.matches) {
+            homepageDiv.style.display = 'none';
+            grid.style.display = 'grid';
+            grid.style.maxWidth = '700px';
+            grid.style.overflow ='hidden';
+        }
+        
+        mediaLandscape.addEventListener('change', function() {
+            
+	        if (!mediaLandscape.matches) {
+                
+                if (grid)
+                    grid.style.display = 'none';
+                
+                if (homepageDiv)
+                    homepageDiv.style.display = 'block';
+                    
+                menu.insertBefore(searchNav, menu.children[2]);
+                logoBar.appendChild(burger);
+                
+            } else {
+                
+                if (homepageDiv)
+                    homepageDiv.style.display = 'none';
+                
+                if (grid) {
+                    grid.style.display = 'grid';
+                    grid.style.maxWidth = '700px';
+                    grid.style.overflow ='hidden';
+                    // grid.style.overflowY = 'visible';
+                }
+                    
+                logoBar.replaceChild(searchNav, burger);
+            }
+            
+        });
 
         
         if (homepageDiv) {
+            
+            homepageDiv.style.display = 'block';
+            
             window.onload = changeImg;
             homepageDiv.addEventListener('mouseover', stopChangeImg);
         }
             
     } else {
         
-        const logoBar = document.getElementById('logo-bar');
-        const searchNav = document.getElementById('search-nav');
-        const burger = document.getElementById('burger');
         logoBar.replaceChild(searchNav, burger);
         
     }
     
-    // modes tablette et bureau
-    const mediaTabDesk = window.matchMedia("(min-width: 500px)");
-    const mediaLandscape = window.matchMedia("(orientation: landscape)");
     
+    // modes tablette, laptop et bureau
     if (mediaTabDesk.matches) {
         
-        grid.style.display = 'none';
+        if (grid)
+            grid.style.display = 'none';
         
         if (mediaLandscape.matches) {
             homepageDiv.style.display = 'none';
@@ -111,13 +382,19 @@ window.addEventListener('DOMContentLoaded', function () {
             
 	        if (!mediaLandscape.matches) {
                 
-                grid.style.display = 'none';
-                homepageDiv.style.display = 'block';
+                if (grid)
+                    grid.style.display = 'none';
+                    
+                if (homepageDiv)
+                    homepageDiv.style.display = 'block';
                 
             } else {
                 
-                homepageDiv.style.display = 'none';
-                grid.style.display = 'grid';
+                if (homepageDiv)
+                    homepageDiv.style.display = 'none';
+                
+                if (grid)
+                    grid.style.display = 'grid';
             }
             
         });

@@ -49,7 +49,7 @@
     ?>
     <?php require_once './src/Templates/footer.php'; ?>
     
-    <script type='module' src='/MonCineClub/public/js/main.js'></script>
+    <script src='/MonCineClub/public/js/main.js'></script>
 </body>
 
 </html>

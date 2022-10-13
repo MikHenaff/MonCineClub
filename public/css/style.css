@@ -6,7 +6,7 @@
     --interactionUser-bg-color: #ccc;
     --msgError-color: #f00;
     --main-font-family: Arial, Helvetica, sans-serif;
-    --logo-font-family: 'Syne Mono', monospace;
+    --logo-font-family: 'Anton', sans-serif;
     --titles-font-family: 'Caveat', cursive;
 }
 
@@ -19,11 +19,10 @@
 body {
     font-family: var(--main-font-family);
     background-color: var(--main-bg-color);
-    height: 100%;
     position: relative;
 }
 
-/**************************************************************** header ************************************************************/
+/**************************************************************** header *****************************************************/
 
 /******************************** logo & burger ***********************/
 
@@ -50,11 +49,21 @@ header {
 
 .logo {
     text-decoration: none;
-    font-size: 2rem;
-    font-weight: 900;
-    color: var(--main-color);
+    font-size: 3rem;
     margin-left: 10px;
     font-family: var(--logo-font-family);
+    background-clip: text;
+    -webkit-background-clip: text;
+    background-image: url(https://image.tmdb.org/t/p/w342/rcLG3jDid6si0OiDrzABe4WuwCy.jpg);
+    background-position: top 0px left 0px;
+    color: transparent;
+    letter-spacing: -1px;
+    transition: all 1s ease-in-out;
+}
+
+.logo:hover {
+    background-image: url(https://image.tmdb.org/t/p/w342/scaiAT7I2KZ2GAeMvoU6Ro1515J.jpg);
+    background-position: top -16px left 5px;
 }
 
 .burger {
@@ -235,7 +244,6 @@ footer {
 
 footer p {
     color: var(--main-color);
-    font-weight: 900;
 }
 
 /************************ homepage *********************************/
@@ -264,23 +272,26 @@ h1.home {
 
 /***************** création / modification de compte ******************/
 
-.user-register {
+.register-container {
     background-color: var(--interactionUser-bg-color);
-    height: 90vh;
-    margin: 0 auto;
-    padding: 20px;
+    height: fit-content;
+    width: fit-content;
+    margin: 150px auto;
     display: flex;
-    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
 
+.user-register {
+    text-align: center;
+    padding: 10px;
+    border: 1px solid var(--main-color);
 }
 
 .user-register h2 {
     font-size: 2rem;
     color: var(--main-color);
-}
-
-.user-register form {
-    margin: 30px auto;
+    margin-bottom: 20px;
 }
 
 .register {
@@ -288,7 +299,7 @@ h1.home {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin: 30px 10px;
+    margin: 10px;
 }
 
 .label-register {
@@ -303,6 +314,10 @@ h1.home {
     padding-left: 5px;
     font-size: 1.1rem;
     border-radius: 5px;
+}
+
+.register-btn {
+    display: flex;
 }
 
 .btn-register, .btn-cancel-register {
@@ -333,19 +348,25 @@ h1.home {
 
 .form-login {
     background-color: var(--interactionUser-bg-color);
-    height: 90vh;
-    margin: 0 auto;
-    padding: 50px 20px;
+    height: fit-content;
+    width: fit-content;
+    margin: 150px auto;
     display: flex;
-    text-align: center;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid var(--main-color);
+}
 
+.login {
+    text-align: center;
+    padding: 10px;
+    width: 300px;
 }
 
 .form-login h2 {
     font-size: 2rem;
     color: var(--main-color);
     margin-bottom: 40px;
-    padding-top: 30px;
 }
 
 .input-login {
@@ -355,6 +376,10 @@ h1.home {
     font-size: 1.1rem;
     border-radius: 5px;
     margin-bottom: 10px;
+}
+
+.cancel-login {
+    margin-left: 0;
 }
 
 .btn-login {
@@ -367,7 +392,7 @@ h1.home {
     background-color: var(--main-bg-color);
     border: 1px solid var(--main-color);
     box-shadow: 0 0 3px var(--main-color);
-    margin: 20px 15px;
+
 }
 
 .btn-login:hover {
@@ -376,6 +401,16 @@ h1.home {
 }
 
 /******************** suppression de compte *******************/
+
+.deletion-container {
+    background-color: var(--interactionUser-bg-color);
+    height: fit-content;
+    width: 300px;
+    margin: 150px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
 .btn-deletion, .btn-no-deletion {
     cursor: pointer;
@@ -404,12 +439,6 @@ h1.home {
     text-decoration: none;
 }
 
-.msg-deletion {
-    color: var(--main-color);
-    font-size: 1.2rem;
-    font-weight: 900;
-}
-
 /************************* messages erreur *******************/
 
 .msg-register {
@@ -435,45 +464,59 @@ h1.home {
 
 /************************* messages succès *******************/
 
-.msg-success {
-    width: 100vw;
-    height: 90vh;
+/*.msg-success {*/
+/*    width: 100vw;*/
+/*    height: 90vh;*/
+/*    margin: 0 auto;*/
+/*    background-color: var(--interactionUser-bg-color);*/
+/*    padding: 50px;*/
+/*    text-align: center;*/
+/*    color: var(--main-color);*/
+/*    font-size: 1.2rem;*/
+/*    font-weight: 900;*/
+/*}*/
+
+.msg-success, .msg-success-registration, .msg-success-update, .msg-deletion {
     margin: 0 auto;
-    background-color: var(--interactionUser-bg-color);
-    padding: 50px;
-    text-align: center;
     color: var(--main-color);
     font-size: 1.2rem;
     font-weight: 900;
+    border: 1px solid var(--main-color);
+    padding: 10px;
+    text-align: center;
 }
 
 .msg-success-registration {
-    margin: 0 auto;
-    color: var(--main-color);
-    font-size: 1.2rem;
-    font-weight: 900;
+    border: none;
+    margin: 0 auto 10px;
 }
 
-.msg-success-update {
-    margin: 0 auto;
-    color: var(--main-color);
-    font-size: 1.2rem;
-    font-weight: 900;
+.msg-success {
+    background-color: var(--interactionUser-bg-color);
+    width: fit-content;
+    margin-top: 150px;
 }
 
-/******************************************************** fin user ************************************************************/
+/******************************************************** fin user ***********************************************************/
 
-/********************************************************* films ***************************************************************/
+/********************************************************* films ************************************************************/
+
+/************** message *************/
 
 .movie-msg {
-    width: 100vw;
-    height: 90vh;
-    background-color: var(--interactionUser-bg-color);
-    padding: 50px;
-    text-align: center;
+    margin: 150px auto;
     color: var(--main-color);
     font-size: 1.2rem;
     font-weight: 900;
+    border: 1px solid var(--main-color);
+    padding: 10px;
+    text-align: center;
+    background-color: var(--interactionUser-bg-color);
+    width: 300px;
+}
+
+.movie-msg p {
+    display: inline-block;
 }
 
 .back-btn {
@@ -484,7 +527,7 @@ h1.home {
     color: var(--main-color);
     font-weight: 900;
     background-color: var(--main-bg-color);
-    margin: 20px auto 50px;
+    margin-top: 20px;
 }
 
 .back-btn:hover {
@@ -492,6 +535,8 @@ h1.home {
    background-color: var(--main-color);
    box-shadow: 0 0 3px var(--main-color);
    
+}.back-details-btn {
+    margin-bottom: 50px;
 }
 
 /*************** affichage films du menu ****************/
@@ -648,15 +693,15 @@ h2.title-movie {
     box-shadow: 0 0 3px var(--main-bg-color);
 }
 
-/******************************************************* fin films *************************************************************/
+/******************************************************* fin films **********************************************************/
 
 
 
 
 
-/******************************************************* media queries *********************************************************/
+/******************************************************* media queries ******************************************************/
 
-/******************* tablette et bureau *********************/
+/******************* tablette, laptop et bureau *********************/
 
 @media screen and (min-width: 500px) {
     
@@ -738,9 +783,7 @@ h2.title-movie {
         grid-area: img01;
         width: 300px;
         position: absolute;
-        top: 0;
         left: 200px;
-        z-index: 0;
     }
     
     .img02 {
@@ -765,7 +808,6 @@ h2.title-movie {
         grid-area: img04;
         width: 100px;
         position: absolute;
-        top: 0;
         left: 380px;
         z-index: 2;
     }
@@ -775,7 +817,6 @@ h2.title-movie {
         width: 100px;
         position: absolute;
         top: 10px;
-        /*left: 0px;*/
         z-index: 2;
     }
     
@@ -784,7 +825,7 @@ h2.title-movie {
         width: 300px;
         position: absolute;
         top: 20px;
-        left: -50px;
+        left: -70px;
         z-index: -1;
     }
     
@@ -792,7 +833,6 @@ h2.title-movie {
         grid-area: img07;
         width: 100px;
         position: absolute;
-        top: 0;
         left: -100px;
         z-index: 2;
     }
@@ -830,23 +870,19 @@ h2.title-movie {
         position: absolute;
         top: -85px;
         left: 35px;
-        z-index: 0;
     }
     
     .img12 {
         grid-area: img12;
         width: 200px;
         position: absolute;
-        top: 0;
         left: -50px;
-        z-index: 0;
     }
     
     .img13 {
         grid-area: img13;
         width: 100px;
         position: absolute;
-        top: 0;
         left: -180px;
         z-index: 1;
     }
@@ -864,7 +900,6 @@ h2.title-movie {
         grid-area: img15;
         width: 100px;
         position: absolute;
-        top: 0px;
         left: 10px;
         z-index: 1;
     }
@@ -875,7 +910,6 @@ h2.title-movie {
         position: absolute;
         top: -20px;
         left: -200px;
-        z-index: 0;
     }
     
     .img17 {
@@ -891,7 +925,6 @@ h2.title-movie {
         grid-area: img18;
         width: 100px;
         position: absolute;
-        top: 0;
         left: 170px;
         z-index: 1;
     }
@@ -918,7 +951,6 @@ h2.title-movie {
         grid-area: img21;
         width: 100px;
         position: absolute;
-        top: 0;
         left: -180px;
         z-index: 1;
     }
@@ -927,7 +959,6 @@ h2.title-movie {
         grid-area: img22;
         width: 100px;
         position: absolute;
-        top: 0;
         left: 0px;
         z-index: 1;
     }
@@ -937,7 +968,6 @@ h2.title-movie {
         width: 100px;
         position: absolute;
         top: 10px;
-        left: 0px;
         z-index: 1;
     }
     
@@ -947,7 +977,6 @@ h2.title-movie {
         position: absolute;
         top: -300px;
         left: -650px;
-        z-index: 0;
     }
     
 /******* fin homepage *******/
@@ -955,28 +984,23 @@ h2.title-movie {
 /*********** user **********/
 
     .user-register {
-        height: auto;
-        margin: 0 auto;
-    }
-
-    .user-register form {
-        margin: 20px auto;
+        padding: 10px 110px;
     }
     
-    .register {
-        flex-direction: row;
-        justify-content: space-between;
+    .form-login {
+        padding: 10px 110px;
     }
     
-    .label-register {
-        margin-right: 20px;
+    .deletion-container {
+        width: fit-content;
     }
 
 /******* fin user **********/
 
-/******** films **********/
+/************* films ***************/
 
 /**** films du menu  ****/
+
     .container-movie {
         display: flex;
         flex-direction: row;
@@ -1009,10 +1033,6 @@ h2.title-movie {
         border: none;
     }
     
-    .container-collection img {
-
-    }
-    
     .container-collection h2 {
         height: 70px;
         overflow: hidden;
@@ -1025,27 +1045,17 @@ h2.title-movie {
         width: 500px;
     }
     
-/****** fin films *********/
+/***** messages****/
+
+.movie-msg {
+    width: fit-content;
+}
+    
+/********* fin films ***********/
     
 }   
 
-/********************** tablette ****************************/
-
-/*@media screen and (min-width: 500px) and (max-width: 1199px) {*/
-    
-
-
-/********** user **********/
-
-/******* fin user *********/
-
-/******** films **********/
-
-/****** fin films *********/
-    
-/*}*/
-
-/********************** bureau *****************************/
+/********************** laptop *****************************/
 
 @media screen and (min-width: 1200px) {
     
@@ -1062,20 +1072,104 @@ h2.title-movie {
     .search-nav-btn {
         width: 50px;
     }
+    
+/******* homepage ********/
+
+    h1.home {
+        margin-top: 170px;
+    }
+    
+    .grid {
+        margin-top: 120px;
+        /*margin-left: -50px;*/
+    }
+    
+}
+    
+/******************* bureau ****************************/
+    
+@media screen and (min-width: 1600px) {
 
 /******* homepage *******/
 
     .grid {
-        margin: 100px;
+        margin-top: 50px;
+        margin-left: -50px;
     }
-
-/********** user **********/
-
-/******* fin user *********/
-
-/******** films **********/
-
-/****** fin films *********/
-
+    
+    .img01, .img04, .img06, .img09,.img13, .img15, .img19 {
+        width: 400px;
+    }
+    
+    .img11, .img12, .img16, .img24 {
+        width: 280px;
+    }
+    
+    .img03, .img02, .img05, .img07, .img21, .img23 {
+        width: 180px;
+    }
+    
+    .img03 {
+        left: 730px;
+        top: 250px;
+    }
+    
+    .img04 {
+        top: 50px;
+        z-index: -2;
+    }
+    
+    .img07 {
+        left: -450px ;
+        top: 170px;
+    }
+    
+    .img08 {
+        left: 700px;
+        top: -140px;
+    }
+    
+    .img13 {
+        left: -580px;
+        top: -230px;
+        z-index: -3;
+    }
+    
+    .img14 {
+        left: -630px;
+        top: 250px;
+    }
+    
+    .img15 {
+        left: 650px;
+        top: -250px;
+        z-index: -3;
+    }
+    
+    .img17 {
+        top: 200px;
+        z-index: 0;
+    }
+    
+    .img18 {
+        left: 270px;
+        top: 250px;
+        z-index: 3;
+    }
+    
+    .img19 {
+        left: -400px;
+        top: -250px;
+        z-index: -2;
+    }
+    
+    .img20 {
+        left: 950px;
+        top: 180px;
+    }
+    
+    .img22 {
+        z-index: 2;
+    }
 
 }

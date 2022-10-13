@@ -19,7 +19,7 @@
                 <p><?= $movie->getOverview(); ?></p>
             </div>
             <form class="details-btn">
-                <input class="back-btn" id="back" type="button" value="Retour">
+                <input class="back-btn back-details-btn" id="back" type="button" value="Retour">
             </form>
         </div>
     <?php endif; ?>
