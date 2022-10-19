@@ -17,7 +17,7 @@
             <label class="label-register" for="email">Email:&nbsp;</label>
             <input class="input-register" type="email" name="email" id="email" <?php if(isset($_POST['email'])): ?> value="<?= $_POST['email']; ?>" <?php endif; ?> autocomplete>
         </div>
-        <div class="register-btn">
+        <div class="register-btn-container">
             <a class="btn-cancel-register" href="./home">Annuler</a>
             <button id="btn-register" class="btn-register" type="submit">Créer</button>
         </div>

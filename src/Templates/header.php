@@ -1,9 +1,9 @@
 <header>
     
-    <nav id="nav">
+    <nav>
         
         <div id='logo-bar' class="logo-bar">
-            <a id="logo" class="logo" href="/MonCineClub/home">MonCinéClub</a>
+            <a class="logo" href="/MonCineClub/home">MonCinéClub</a>
             <div id="burger" class="burger">
                 <span class="bar"></span>
                 <span class="bar"></span>
@@ -34,10 +34,10 @@
                     <?php if(Authenticator::isLogged()): ?>
                         <li class="submenu-items"><a href="/MonCineClub/logout">Me déconnecter</a></li>
                         <li class="submenu-items"><a href="/MonCineClub/update-profile">Modifier mon profil</a></li>
-                        <li class="submenu-items del-item"><a class="deleted" href="/MonCineClub/delete-profile">Supprimer mon compte</a></li>
+                        <li class="submenu-items"><a href="/MonCineClub/delete-profile">Supprimer mon compte</a></li>
                     <?php else: ?>
-                        <li class="submenu-items not-connected"><a href="/MonCineClub/login">Me connecter</a></li>
-                        <li class="submenu-items not-connected"><a href="/MonCineClub/user-register">Créer mon compte</a></li>
+                        <li class="submenu-items"><a href="/MonCineClub/login">Me connecter</a></li>
+                        <li class="submenu-items"><a href="/MonCineClub/user-register">Créer mon compte</a></li>
                     <?php endif; ?>
                 </ul>
             </li>

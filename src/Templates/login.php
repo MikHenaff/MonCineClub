@@ -1,5 +1,5 @@
 <?php if(!Authenticator::isLogged()): ?>
-    <div class="form form-login">
+    <div class="form-login">
         <form name="login" class="login" action="./login" method="POST">
             <?php if(isset($_SESSION['success-registration'])): ?>
             <p class="msg-success-registration"><?php echo $_SESSION['success-registration'];
@@ -17,4 +17,3 @@
         </form>
     </div>
 <?php endif; ?>
-

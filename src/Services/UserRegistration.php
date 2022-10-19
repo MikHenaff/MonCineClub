@@ -56,9 +56,9 @@ class UserRegistration
         if (!$responseUsername && !$responseEmail)
         {
             // récupération des données utilisateur (et hashage du mot de passe)
-            $username = $_POST['username'];
+            $username = htmlspecialchars($_POST['username'], ENT_QUOTES);
             $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
-            $email = $_POST['email'];
+            $email = htmlspecialchars($_POST['email'], ENT_QUOTES);
             
             // requête SQL d'insertion des données du nouvel utilisateur dans la bdd
             $request = $db->prepare(

@@ -143,6 +143,11 @@ nav ul li a:hover {
     font-weight: 900;
 }
 
+.with-sub:hover {
+    background-color: var(--main-color);
+    color: var(--main-bg-color);
+}
+
 .menu {
     position: fixed;
     top: 70px;
@@ -212,7 +217,6 @@ nav ul li a:hover {
 
 .search-nav-input::placeholder {
     color: var(--main-color);
-    font-weight: 400;
 }
 
 .search-nav-btn {
@@ -259,7 +263,7 @@ h1.home {
     text-align: center;
 }
 
-.changeImg {
+.change-img {
     display: block;
     height: 68vh;
     position: relative;
@@ -316,7 +320,7 @@ h1.home {
     border-radius: 5px;
 }
 
-.register-btn {
+.register-btn-container {
     display: flex;
 }
 
@@ -463,18 +467,6 @@ h1.home {
 }
 
 /************************* messages succès *******************/
-
-/*.msg-success {*/
-/*    width: 100vw;*/
-/*    height: 90vh;*/
-/*    margin: 0 auto;*/
-/*    background-color: var(--interactionUser-bg-color);*/
-/*    padding: 50px;*/
-/*    text-align: center;*/
-/*    color: var(--main-color);*/
-/*    font-size: 1.2rem;*/
-/*    font-weight: 900;*/
-/*}*/
 
 .msg-success, .msg-success-registration, .msg-success-update, .msg-deletion {
     margin: 0 auto;
@@ -659,9 +651,7 @@ form.change-pages {
 }
 
 h2.title-movie {
-    font-size: 1.8rem;
-    text-align: center;
-    margin: 20px auto 10px;
+    margin: 10px auto 20px;
 }
 
 .container-collection .btn {
@@ -701,7 +691,7 @@ h2.title-movie {
 
 /******************************************************* media queries ******************************************************/
 
-/******************* tablette, laptop et bureau *********************/
+/******************* téléphone paysage, tablette, laptop et bureau *********************/
 
 @media screen and (min-width: 500px) {
     
@@ -743,11 +733,6 @@ h2.title-movie {
         height: 51px;
     }
     
-    .with-sub:hover {
-        background-color: var(--main-color);
-        color: var(--main-bg-color);
-    }
-    
     .menu li:nth-child(3) {
         line-height: 51px;
     }
@@ -776,7 +761,7 @@ h2.title-movie {
         grid-template-rows: 100px 100px 100px 100px;
         grid-template-columns: 100px 100px 100px 100px 100px 100px;
         justify-content: center;
-        justify-items: center;
+        /*justify-items: center;*/
     }
     
     .img01 {
@@ -1005,6 +990,7 @@ h2.title-movie {
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
+        justify-content: center;
         margin: 0 auto;
     }
     
@@ -1034,7 +1020,7 @@ h2.title-movie {
     }
     
     .container-collection h2 {
-        height: 70px;
+        height: 80px;
         overflow: hidden;
         font-size: 1.2rem;
         text-align: unset;
@@ -1047,13 +1033,24 @@ h2.title-movie {
     
 /***** messages****/
 
-.movie-msg {
-    width: fit-content;
-}
+    .movie-msg {
+        width: fit-content;
+    }
     
 /********* fin films ***********/
     
-}   
+}
+
+/************************ tablette *************************/
+
+@media screen and (min-width: 780px) {
+    
+/********* homepage *********/
+
+    h1.home {
+        margin: 140px auto 50px;
+    }
+}
 
 /********************** laptop *****************************/
 
@@ -1076,12 +1073,7 @@ h2.title-movie {
 /******* homepage ********/
 
     h1.home {
-        margin-top: 170px;
-    }
-    
-    .grid {
-        margin-top: 120px;
-        /*margin-left: -50px;*/
+        margin: 140px auto 90px;
     }
     
 }
@@ -1093,7 +1085,6 @@ h2.title-movie {
 /******* homepage *******/
 
     .grid {
-        margin-top: 50px;
         margin-left: -50px;
     }
     
@@ -1117,6 +1108,10 @@ h2.title-movie {
     .img04 {
         top: 50px;
         z-index: -2;
+    }
+    
+    .img05 {
+        top: -30px;
     }
     
     .img07 {

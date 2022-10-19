@@ -7,28 +7,6 @@ class UserController extends AbstractController
     // méthode statique d'enregistrement de l'utilisateur
     public static function register(): void
     {
-        // si un ou des champs ne sont pas remplis, on envoit un message d'erreur
-        // if (isset($_POST['username']) && empty($_POST['username']) && isset($_POST['password']) && empty($_POST['password']) && isset($_POST['password2']) && empty($_POST['password2']) && isset($_POST['email']) && empty($_POST['email']))
-        // {
-        //     $_SESSION['msg'] = 'Veuillez remplir tous les champs';
-        // }
-        // else if (isset($_POST['username']) && empty($_POST['username']))
-        // {
-        //     $_SESSION['msg'] = 'Veuillez saisir un nom d\'utilisateur';
-        // }
-        // else if (isset($_POST['password']) && empty($_POST['password']))
-        // {
-        //     $_SESSION['msg'] = 'Veuillez saisir un mot de passe';
-        // }
-        // else if (isset($_POST['password2']) && empty($_POST['password2']))
-        // {
-        //     $_SESSION['msg'] = 'Veuillez saisir un mot de passe de confirmation';
-        // }
-        // else if (isset($_POST['email']) && empty($_POST['email']))
-        // {
-        //     $_SESSION['msg'] = 'Veuillez saisir un email';
-        // }
-        
         // si les champs sont remplis...
         if (!empty($_POST['username']) && !empty($_POST['password']) && !empty($_POST['password2']) && !empty($_POST['email']))
         {
@@ -56,28 +34,6 @@ class UserController extends AbstractController
         // si l'utilisateur est connecté
         if ($_SESSION['userId'])
         {
-            // si un ou des champs ne sont pas remplis, on envoit un message d'erreur
-            // if (isset($_POST['updated_username']) && empty($_POST['updated_username']) && isset($_POST['updated_password']) && empty($_POST['updated_password']) && isset($_POST['updated_password2']) && empty($_POST['updated_password2']) && isset($_POST['updated_email']) && empty($_POST['updated_email']))
-            // {
-            //     $_SESSION['msg'] = 'Veuillez remplir tous les champs';
-            // }
-            // else if (isset($_POST['updated_username']) && empty($_POST['updated_username']))
-            // {
-            //     $_SESSION['msg'] = 'Veuillez saisir un nom d\'utilisateur';
-            // }
-            // else if (isset($_POST['updated_password']) && empty($_POST['updated_password']))
-            // {
-            //     $_SESSION['msg'] = 'Veuillez saisir un mot de passe';
-            // }
-            // else if (isset($_POST['updated_password2']) && empty($_POST['updated_password2']))
-            // {
-            //     $_SESSION['msg'] = 'Veuillez saisir un mot de passe de confirmation';
-            // }
-            // else if (isset($_POST['updated_email']) && empty($_POST['updated_email']))
-            // {
-            //     $_SESSION['msg'] = 'Veuillez saisir un email';
-            // }
-            
             // si les champs sont remplis...
             if (!empty($_POST['updated_username']) && !empty($_POST['updated_password']) && !empty($_POST['updated_password2']) && !empty($_POST['updated_email']))
             {

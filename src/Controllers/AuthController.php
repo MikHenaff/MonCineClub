@@ -9,34 +9,11 @@ class AuthController extends AbstractController
     {
         // si les champs ne sont pas vides alors on authentifie l'utilisateur
         if (!empty($_POST['username']) && !empty($_POST['password_submitted']))
-        {
-            $user = Authenticator::authenticate(new User($_POST['username'], $_POST['password_submitted']));
-        }
-        
-        // si un ou tous les champs sont vides alors on envoit un message d'erreur
-        // if (isset($_POST['username']) && empty($_POST['username']) && isset($_POST['password_submitted']) && empty($_POST['password_submitted']))
-        // {
-        //     $_SESSION['msg'] = 'Veuillez saisir votre nom d\'utilisateur et votre mot de passe';
-        // }
-        // else if (isset($_POST['username']) && empty($_POST['username']))
-        // {
-        //     $_SESSION['msg'] = 'Veuillez saisir votre nom d\'utilisateur';
-        // }
-        // else if (isset($_POST['password_submitted']) && empty($_POST['password_submitted']))
-        // {
-        //     $_SESSION['msg'] = 'Veuillez saisir votre mot de passe';
-        // }
+            $user = Authenticator::authenticate(new User(htmlspecialchars($_POST['username'], ENT_QUOTES), $_POST['password_submitted']));
             
         // formulaire de connexion
-        if (!Authenticator::isLogged()):
-            
-        //     header('location: /MonCineClub/src/Templates/login.php');
-            
-        // else:
-            
+        if (!Authenticator::isLogged())
             self::render('login');
-            
-        endif;
 
     }
     

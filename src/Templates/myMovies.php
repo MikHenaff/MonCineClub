@@ -31,7 +31,3 @@
     </div>
     <?php endif; ?>
 <?php endif; ?>
-<?php if (isset($_SESSION['msg'])): ?>
-<p><?php echo ($_SESSION['msg']);
-unset($_SESSION['msg']); ?></p>
-<?php endif; ?>

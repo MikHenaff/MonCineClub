@@ -17,13 +17,13 @@
     
     <!-- HTML Meta Tags -->
     <title>MonCinéClub</title>
-    <meta name="description" content="un site dédié aux amoureux du cinéma qui veulent se créer leur propre collectin de films">
+    <meta name="description" content="un site dédié aux amoureux du cinéma qui veulent se créer leur propre collection de films">
     
     <!-- Facebook Meta Tags -->
     <meta property="og:url" content="https://mikaelhenaff.sites.3wa.io/MonCineClub/index.php">
     <meta property="og:type" content="website">
     <meta property="og:title" content="MonCinéClub">
-    <meta property="og:description" content="un site dédié aux amoureux du cinéma qui veulent se créer leur propre collectin de films">
+    <meta property="og:description" content="un site dédié aux amoureux du cinéma qui veulent se créer leur propre collection de films">
     <meta property="og:image" content="https://mikaelhenaff.sites.3wa.io/MonCineClub/public/img/projecteur.jpg">
     
     <!-- Twitter Meta Tags -->
@@ -31,7 +31,7 @@
     <meta property="twitter:domain" content="mikaelhenaff.sites.3wa.io">
     <meta property="twitter:url" content="https://mikaelhenaff.sites.3wa.io/MonCineClub/index.php">
     <meta name="twitter:title" content="MonCinéClub">
-    <meta name="twitter:description" content="un site dédié aux amoureux du cinéma qui veulent se créer leur propre collectin de films">
+    <meta name="twitter:description" content="un site dédié aux amoureux du cinéma qui veulent se créer leur propre collection de films">
     <meta name="twitter:image" content="https://mikaelhenaff.sites.3wa.io/MonCineClub/public/img/projecteur.jpg">
     
     <!-- Meta Tags Generated via https://www.opengraph.xyz -->

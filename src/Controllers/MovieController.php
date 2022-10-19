@@ -27,18 +27,6 @@ class MovieController extends AbstractController
         // si le bouton de suppression est cliqué, suppression du film et envoit d'un message
         if (isset($_POST['id-movie-deletion'])):
             
-            // // récupération d'un objet film précis via la connexion à l'API par l'identifiant du film
-            // $idMovie = $_POST['id-api-movie'];
-            // var_dump($_POST['id-api-movie']);
-            // $dataObj = APIConnection::apiDetailsSearchById($idMovie);
-
-            // // récupération des données du film
-            // $movie = LoadFromJson::loadDetailsFromJson($dataObj);
-            // $title = $movie->getTitle();
-            
-            // // message
-            // $_SESSION['msg'] = "Le film \"$title\" a bien été supprimé de votre collection.";
-            
             // suppression du film
             MovieDeletion::delete();
             

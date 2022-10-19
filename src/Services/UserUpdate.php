@@ -76,10 +76,10 @@ class UserUpdate
         // si aucun n'existe et que le mot de passe correspond alors on peut enregistrer les nouvellles données de l'utilisateur
         if (!$responseUsername || $_POST['updated_username'] === $_SESSION['username'] && !$responseEmail || $_POST['updated_email'] === $_SESSION['email'])
         {
-            // récupération des données utilisateur (et hashage du mot de passe)
-            $updated_username = $_POST['updated_username'];
+            // récupération des données utilisateur (sécurisation des données et hashage du mot de passe)
+            $updated_username = htmlspecialchars($_POST['updated_username'], ENT_QUOTES);
             $updated_password = password_hash($_POST['updated_password'], PASSWORD_DEFAULT);
-            $updated_email = $_POST['updated_email'];
+            $updated_email = htmlspecialchars($_POST['updated_email'], ENT_QUOTES);
             
             // requête SQL de mise à jour des données de l'utilisateur dans la bdd
             $request = $db->prepare(

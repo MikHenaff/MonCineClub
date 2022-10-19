@@ -11,17 +11,17 @@
             </div>
             <div class="register">
                 <label class="label-register" for="updated_password">Mot de passe:</label>
-                <input class="input-register" type="password" name="updated_password" id="updated_password" <?php if(isset($_POST['updated_password'])): ?> value="<?= $_POST['updated_password']; ?>" <?php endif; ?> autocomplete>
+                <input class="input-register" type="password" name="updated_password" id="updated_password" <?php if(isset($_POST['updated_password'])): ?> value="<?= $_POST['updated_password']; ?>" <?php endif; ?>>
             </div>
             <div class="register">
                 <label class="label-register" for="updated_password2">Vérification du mot de passe:</label>
-                <input class="input-register" type="password" name="updated_password2" id="updated_password2" <?php if(isset($_POST['updated_password2'])): ?> value="<?= $_POST['updated_password2']; ?>" <?php endif; ?> autocomplete>
+                <input class="input-register" type="password" name="updated_password2" id="updated_password2" <?php if(isset($_POST['updated_password2'])): ?> value="<?= $_POST['updated_password2']; ?>" <?php endif; ?>>
             </div>
             <div class="register">
                 <label class="label-register" for="updated_email">Email:</label>
                 <input class="input-register" type="email" name="updated_email" id="updated_email" <?php if(isset($_POST['updated_email'])): ?> value="<?= $_POST['updated_email']; ?>" <?php endif; ?> autocomplete>
             </div>
-            <div class="register-btn">
+            <div class="register-btn-container">
                 <a class="btn-cancel-register" href="./home">Annuler</a>
                 <button id="btn-update" class="btn-register" type="submit">Modifier</button>
             </div>
