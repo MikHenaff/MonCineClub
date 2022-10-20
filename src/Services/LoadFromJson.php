@@ -13,61 +13,111 @@ class LoadFromJson
         // définition des données
         $movie->setId_api($json['id']);
         $movie->setTitle($json['title']);
-        $movie->setPoster_path($json['poster_path']);
-        $movie->setTagline($json['tagline']);
-        $movie->setOverview($json['overview']);
+            
+        if ($json['poster_path']) {
+            
+            $movie->setPoster_path($json['poster_path']);
+            
+        } else {
+            
+            $movie->setPoster_path('Affiche indisponible');
+        }
+            
+        if ($json['tagline'])      
+            $movie->setTagline($json['tagline']);
         
-        if($json['genres'])
-        {
+        if ($json['genres']) {
+            
             $tabGenres = [];
             
             foreach ($json['genres'] as $genre)
             {
                 array_push($tabGenres, $genre['name']);
             }
+            
             $tabGenres = implode(', ', $tabGenres);
 
             $movie->setGenres($tabGenres);
+            
+        } else {
+            
+            $movie->setGenres('indéfini');
         }
         
-        if($json['runtime'])
-        {
+        if ($json['runtime']) {
+            
             $hour = floor($json['runtime'] / 60);
             $minutes = $json['runtime'] % 60;
             
             $movie->setRuntime($hour . 'h ' . $minutes . 'min');
+            
+        } else {
+            
+            $movie->setRuntime('indéfini');
         }
         
-        if ($json['credits'])
-        {
-            $tab = [];
-            for($i = 0; $i < 3; $i++)
-                {
-                    array_push($tab, $json['credits']['cast'][$i]['name']);
-                }
-            $tab = implode(', ', $tab);
-
-            $movie->setActors($tab);
-        }
-        
-        if ($json['credits'])
-        {
+        if (count($json['credits']['crew']) > 0) {
+            
             $dir = '';
+            
             for($i = 0; $i < count($json['credits']['crew']); $i++)
             {
                     if($json['credits']['crew'][$i]['job'] === 'Director')
                         $dir = $json['credits']['crew'][$i]['name'];
             }
+            
             $movie->setDirector($dir);
+            
+        } else {
+            
+            $movie->setDirector('indéfini');
         }
         
-        if($json['release_date'])
-        {
-             $reldate = trim( implode('/', array_reverse(explode('-', $json['release_date']))));
-             $movie->setRelease_date($reldate);
-        }
+        if (count($json['credits']['cast']) > 0) {
             
-        $movie->setVote_average($json['vote_average']);
+            $tab = [];
+            
+            for($i = 0; $i < 3; $i++)
+            {
+                array_push($tab, $json['credits']['cast'][$i]['name']);
+            }
+            
+            $tab = implode(', ', $tab);
+
+            $movie->setActors($tab);
+            
+        } else {
+            
+            $movie->setActors('indéfini');
+        }
+        
+        if ($json['vote_average']) {
+            
+            $movie->setVote_average($json['vote_average']);
+        } else {
+            
+            $movie->setVote_average('indéfini');
+        }
+        
+        if($json['release_date']) {
+            
+            $reldate = trim( implode('/', array_reverse(explode('-', $json['release_date']))));
+            $movie->setRelease_date($reldate);
+             
+        } else {
+            
+            $movie->setRelease_date('indéfini');
+        }
+        
+        
+        if ($json['overview']) {
+            
+            $movie->setOverview($json['overview']);
+            
+        } else {
+            
+            $movie->setOverview('indéfini');
+        }
 
         return $movie;
     }
@@ -83,7 +133,7 @@ class LoadFromJson
             // instanciation de Movie
             $movie = new Movie();
             
-            // sin les données existent, définition de celles-ci
+            // si les données existent, définition de celles-ci
             if($json['results'][$i]['id'] && $json['results'][$i]['title'] && $json['results'][$i]['poster_path'] && $json['results'][$i]['overview'] && $json['results'][$i]['release_date'] && $json['results'][$i]['vote_average']):
                 
                 $movie->setId_api($json['results'][$i]['id']);
@@ -93,7 +143,7 @@ class LoadFromJson
                 
                 if($json['results'][$i]['release_date'])
                 {
-                     $reldate = trim( implode('/', array_reverse(explode('-', $json['results'][$i]['release_date']))));
+                     $reldate = trim(implode('/', array_reverse(explode('-', $json['results'][$i]['release_date']))));
                      $movie->setRelease_date($reldate);
                 }
                     
