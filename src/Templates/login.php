@@ -7,7 +7,7 @@
             <?php endif; ?>
             <h2>Me connecter</h2>
             <input class="input-login" type="text" placeholder="nom d'utlilisateur" name="username" <?php if(isset($_POST['username'])): ?> value="<?= $_POST['username']; ?>" <?php endif; ?>/>
-            <input class="input-login" type="password" placeholder="mot de passe" name="password_submitted" <?php if(isset($_POST['password_submitted'])): ?> value="<?= $_POST['password_submitted']; ?>" <?php endif; ?>/>
+            <input class="input-login" type="password" placeholder="mot de passe" name="password_submitted"/>
             <a class="btn-cancel-register cancel-login" href="./home">Annuler</a>
             <input id="btn-login" class="btn-login" type="submit" value="Me connecter">
             <?php if(isset($_SESSION['msg'])): ?>

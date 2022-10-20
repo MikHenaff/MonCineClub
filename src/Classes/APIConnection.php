@@ -99,7 +99,7 @@ final class APIConnection
             // modification des données saisies ('fight club' devient 'fight+club') pour correspondre à l'API
             $value = $_POST['search'];
             $value = implode('+', explode(' ', $value));
-            
+
             // connexion à l'API et récupération des données
             $ch = curl_init();
             curl_setopt($ch, CURLOPT_URL, "https://api.themoviedb.org/3/search/movie?api_key=$api_key&query=$value&language=fr-FR");

@@ -30,8 +30,6 @@ window.addEventListener('DOMContentLoaded', function () {
     
     // ***************** validation des formulaires (caractères spéciaux et champs vides) ************************
     
-    let regex = /\<|\>|\(|\)/gm;
-    
     // ************* barre de recherche ***********************
     
     const formSearch = document.forms['search-nav'];
@@ -41,12 +39,6 @@ window.addEventListener('DOMContentLoaded', function () {
     function validateFormSearch() {
         
         const search = formSearch['search'].value;
-        
-        // if (search.match(regex)) {
-            
-        //     alert('Vous ne pouvez pas utiliser les caracères suivants: "<, >, (, )"');
-        //     return false;
-        // }
         
         if (search.length === 0) {
             
@@ -93,12 +85,6 @@ window.addEventListener('DOMContentLoaded', function () {
         const passwordRegister = formRegister['password'].value;
         const password2Register = formRegister['password2'].value;
         const emailRegister = formRegister['email'].value;
-        
-        // if (usernameRegister.match(regex) || passwordRegister.match(regex) || password2Register.match(regex) || emailRegister.match(regex)) {
-            
-        //     alert('Vous ne pouvez pas utiliser les caracères suivants: "<, >, (, )"');
-        //     return false;
-        // }
         
         if (usernameRegister.length === 0 && passwordRegister.length === 0 && password2Register.length === 0 && emailRegister.length === 0) {
             
@@ -173,12 +159,6 @@ window.addEventListener('DOMContentLoaded', function () {
         const password2Update = formUpdate['updated_password2'].value;
         const emailUpdate = formUpdate['updated_email'].value;
         
-        // if (usernameUpdate.match(regex) || passwordUpdate.match(regex) || password2Update.match(regex) || emailUpdate.match(regex)) {
-            
-        //     alert('Vous ne pouvez pas utiliser les caracères suivants: "<, >, (, )"');
-        //     return false;
-        // }
-        
         if (usernameUpdate.length === 0 && passwordUpdate.length === 0 && password2Update.length === 0 && emailUpdate.length === 0) {
             
             alert('veuillez remplir tous les champs');
@@ -249,12 +229,6 @@ window.addEventListener('DOMContentLoaded', function () {
         
         const usernameLogin = formLogin['username'].value;
         const passwordLogin = formLogin['password_submitted'].value;
-        
-        // if (usernameLogin.match(regex) || passwordLogin.match(regex)) {
-            
-        //     alert('Vous ne pouvez pas utiliser les caracères suivants: "<, >, (, )"');
-        //     return false;
-        // }
         
         if (usernameLogin.length === 0 && passwordLogin.length === 0) {
             

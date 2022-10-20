@@ -7,11 +7,11 @@
         </div>
         <div class="register">
             <label class="label-register" for="password">Mot de passe:&nbsp;</label>
-            <input class="input-register" type="password" name="password" id="password" <?php if(isset($_POST['password'])): ?> value="<?= $_POST['password']; ?>" <?php endif; ?>>
+            <input class="input-register" type="password" name="password" id="password">
         </div>
         <div class="register">
             <label class="label-register" for="password2">Vérification du mot de passe:&nbsp;</label>
-            <input class="input-register" type="password" name="password2" id="password2" <?php if(isset($_POST['password2'])): ?> value="<?= $_POST['password2']; ?>" <?php endif; ?>>
+            <input class="input-register" type="password" name="password2" id="password2">
         </div>
         <div class="register">
             <label class="label-register" for="email">Email:&nbsp;</label>
