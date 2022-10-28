@@ -12,7 +12,16 @@ class LoadFromJson
         
         // définition des données
         $movie->setId_api($json['id']);
-        $movie->setTitle($json['title']);
+        
+        if ($json['title']) {
+            
+            $movie->setTitle($json['title']);
+            
+        } else {
+            
+           $movie->setTitle('titre indéfini'); 
+        }
+        
             
         if ($json['poster_path']) {
             
@@ -23,10 +32,9 @@ class LoadFromJson
             $movie->setPoster_path('Affiche indisponible');
         }
             
-        if ($json['tagline'])      
-            $movie->setTagline($json['tagline']);
+        $movie->setTagline($json['tagline']);
         
-        if ($json['genres']) {
+        if (count($json['genres']) > 0) {
             
             $tabGenres = [];
             
@@ -73,7 +81,7 @@ class LoadFromJson
             $movie->setDirector('indéfini');
         }
         
-        if (count($json['credits']['cast']) > 0) {
+        if (count($json['credits']['cast']) > 2) {
             
             $tab = [];
             
@@ -94,6 +102,7 @@ class LoadFromJson
         if ($json['vote_average']) {
             
             $movie->setVote_average($json['vote_average']);
+            
         } else {
             
             $movie->setVote_average('indéfini');
