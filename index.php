@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 // démarrage d'une nouvelle session ou restauration d'une session existante (permet l'accès à la superglobale $_SESSION)
 session_start();
@@ -28,7 +28,5 @@ $router->addRoute('^recent-movies\/?(?P<page>[0-9]+)?$', ['MovieController', 'di
 $router->addRoute('^popular-movies\/?(?P<page>[0-9]+)?$', ['MovieController', 'displayPopularMovies']);
 $router->addRoute('^upcoming-movies\/?(?P<page>[0-9]+)?$', ['MovieController', 'displayUpcomingMovies']);
 $router->addRoute('delete-movie', ['MovieController', 'deleteMovie']);
-
-
 
 $router->resolve();
